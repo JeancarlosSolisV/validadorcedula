@@ -80,7 +80,9 @@ public class Calculadora {
                             
                     }
                 }
-                System.out.println("el resultado es: "+total);
+                if (opt==4){
+                    System.out.println("el resultado es: "+totaldiv);
+                }else{System.out.println("el resultado es: "+total);}
         }while(opt!=0);
     }
 }
