@@ -30,7 +30,6 @@ public class Calculadora {
         double division=x/y;
         return division;
     }
-    
     public static void main(String []args)throws IOException{
         Calculadora c=new Calculadora();
         int opt;
@@ -41,30 +40,31 @@ public class Calculadora {
             InputStreamReader isr = new InputStreamReader(System.in);
             BufferedReader br = new BufferedReader(isr);
             opt = br.read()-48;
-            
-                double totaldiv=0;
-                int num,total=0;
-             boolean bandera=true;
-                while(bandera==true){
-                    System.out.println("Para salir presione una letra");
-                    System.out.print("Ingrese los valores: ");
-                    br=new BufferedReader(isr);
-                    String str=br.readLine();
-                    for(int i=0;i<str.length();i++){
-                        if(str.charAt(i)<48||str.charAt(i)>57){
-                            bandera=false;
-                        }
+            double totaldiv=0;
+            int num,total=0;
+            boolean banderares=false;
+            boolean bandera=true;
+            while(bandera==true){
+                System.out.println("Para salir presione una letra");
+                System.out.print("Ingrese los valores: ");
+                br=new BufferedReader(isr);
+                String str=br.readLine();
+                for(int i=0;i<str.length();i++){
+                    if(str.charAt(i)<48||str.charAt(i)>57){
+                        bandera=false;
                     }
-                    if(bandera==true){
-                        num=Integer.parseInt(str);
-                        switch(opt){
-                            case 1:
-                                total=c.Sumador(total, num);
-                                break;
-                            case 2: 
-                                if(total==0){
-                                    total=num;
-                                }else{
+                }
+                if(bandera==true){
+                    num=Integer.parseInt(str);
+                    switch(opt){
+                        case 1:
+                            total=c.Sumador(total, num);
+                            break;
+                        case 2:
+                            if (banderares==false){
+                                total=num;
+                                banderares=true;
+                            }else{
                                 total=c.Resta(total, num);
                                 }break;
                             case 3:
