@@ -41,12 +41,13 @@ public class Calculadora {
             InputStreamReader isr = new InputStreamReader(System.in);
             BufferedReader br = new BufferedReader(isr);
             opt = br.read()-48;
-            if (opt==1){
-             int num,total=0;
+            
+                double totaldiv=0;
+                int num,total=0;
              boolean bandera=true;
-                while(bandera=true){
+                while(bandera==true){
                     System.out.println("Para salir presione una letra");
-                    System.out.print("Ingrese el numero a sumar: ");
+                    System.out.print("Ingrese los valores: ");
                     br=new BufferedReader(isr);
                     String str=br.readLine();
                     for(int i=0;i<str.length();i++){
@@ -56,11 +57,30 @@ public class Calculadora {
                     }
                     if(bandera==true){
                         num=Integer.parseInt(str);
-                        total=c.Sumador(total, num);    
+                        switch(opt){
+                            case 1:
+                                total=c.Sumador(total, num);
+                                break;
+                            case 2: 
+                                if(total==0){
+                                    total=num;
+                                }else{
+                                total=c.Resta(total, num);
+                                }break;
+                            case 3:
+                                if(total==0){
+                                    total=1;
+                                }
+                                total=c.Multiplicacion(total, num);
+                                break;
+                            case 4:
+                                totaldiv=c.Division(total, num);
+                                break;
+                        }
+                            
                     }
-                } 
-                System.out.println("el resultado de la suma es: "+total);
-            }
+                }
+                System.out.println("el resultado es: "+total);
         }while(opt!=0);
     }
 }
