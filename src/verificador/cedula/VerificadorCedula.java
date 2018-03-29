@@ -20,6 +20,11 @@ public class VerificadorCedula {
      */
     public static void main(String[] args) throws IOException {
         // TODO code application logic here
+        Calculadora c=new Calculadora();
+        System.out.println(c.Sumador(5, 16));
+        System.out.println(c.Resta(16, 5));
+        System.out.println(c.Multiplicacion(5, 16));
+        System.out.println(c.Division(5, 16));
         char[]cI=new char[10];
         int[]cE=new int[10];
         int[]mUL={2,1,2,1,2,1,2,1,2};
